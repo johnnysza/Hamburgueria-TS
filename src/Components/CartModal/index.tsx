@@ -43,6 +43,7 @@ const CartModal = () => {
                       <img src={item.image} alt={item.product} />
                     </div>
                     <div id="productstatus">
+                      <h1>{item.title}</h1>
                       <h1>{item.product}</h1>
                       <div id="productCounter">
                         <button onClick={() => removeOneFromCart(item)}>

@@ -28,6 +28,7 @@ interface ProductsProps {
 interface ProductData {
   userId: number;
   product: string;
+  title: string;
   category: string;
   price: number;
   image: string;
@@ -75,6 +76,7 @@ export const ProductsProvider = ({ children }: ProductsProps) => {
   const addToCart = (product: ProductData) => {
     const newProduct = {
       product: product.product,
+      title: product.title,
       category: product.category,
       price: product.price,
       quantity: product.quantity,
@@ -98,7 +100,7 @@ export const ProductsProvider = ({ children }: ProductsProps) => {
           )
           .then(() =>
             toast.success(
-              `Mais um ${findProduct.product} adicionado ao carrinho.`
+              `Mais um ${findProduct.title} adicionado ao carrinho.`
             )
           )
       : axios
@@ -112,7 +114,7 @@ export const ProductsProvider = ({ children }: ProductsProps) => {
             }
           )
           .then(() => {
-            toast.success(`${newProduct.product} adicionado ao carrinho.`);
+            toast.success(`${newProduct.title} adicionado ao carrinho.`);
           })
           .catch(() =>
             toast.error("O produto não foi adicionado ao carrinho.")
@@ -130,7 +132,7 @@ export const ProductsProvider = ({ children }: ProductsProps) => {
         }
       )
       .then(() =>
-        toast.success(`Removido ${product.product} por completo do carrinho.`)
+        toast.success(`Removido ${product.title} por completo do carrinho.`)
       );
   };
 

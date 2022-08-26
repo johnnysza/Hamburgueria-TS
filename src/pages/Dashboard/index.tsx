@@ -50,6 +50,7 @@ const Dashboard = () => {
                   <img src={item.image} alt={item.product} />
                 </div>
                 <div id="ProductDescriptionDiv">
+                  <h1>{item.title}</h1>
                   <h1>{item.product}</h1>
                   <h2>{item.category}</h2>
                   <h3>R$ {item.price}.00</h3>
